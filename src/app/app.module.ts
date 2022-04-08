@@ -8,6 +8,7 @@ import { MyComponentComponent } from './components/my-component/my-component.com
 import { IndexComponent } from './components/index/index.component';
 import { ListComponent } from './components/issue/list/list.component';
 import { DetailComponent } from './components/issue/detail/detail.component';
+import { NewComponent } from './components/issue/new/new.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DetailComponent } from './components/issue/detail/detail.component';
     MyComponentComponent,
     IndexComponent,
     ListComponent,
-    DetailComponent
+    DetailComponent,
+    NewComponent
   ],
   imports: [
     BrowserModule,
