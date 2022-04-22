@@ -9,6 +9,7 @@ import { ListComponent } from './components/issue/list/list.component';
 import { DetailComponent } from './components/issue/detail/detail.component';
 import { NewComponent } from './components/issue/new/new.component';
 import { RoutingModule } from './routing/routing.module';
+import { GlinkComponent } from './components/glink/glink.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RoutingModule } from './routing/routing.module';
     IndexComponent,
     ListComponent,
     DetailComponent,
-    NewComponent
+    NewComponent,
+    GlinkComponent
   ],
   imports: [
     BrowserModule,
