@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Issue } from 'src/app/issue';
+import { IssueService } from 'src/app/services/issue.service';
 
 @Component({
   selector: 'app-issue-list',
@@ -7,36 +8,9 @@ import { Issue } from 'src/app/issue';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
-  public issues: Array<Issue> = [
-    {
-      id: 1,
-      title: 'Bad Machine',
-      description: 'Bad Machine in the Farm',
-      status: 'NEW',
-      place: 'PC01'
-    },
-    {
-      id: 2,
-      title: 'Bad Mouse',
-      description: 'Mickey Mouse ill',
-      status: 'NEW',
-      place: 'PC03'
-    },
-    {
-      id: 3,
-      title: 'Jim Raynor angry',
-      description: 'Cannot run Stracraft on 386 arch computer',
-      status: 'DOING',
-      place: 'PC66'
-    },
-    {
-      id: 4,
-      title: 'No power',
-      description: 'NO power in PC42',
-      status: 'DONE',
-      place: 'PC42'
-    },
-  ];
+  public issues: Array<Issue> = []
 
-  constructor() { }
+  constructor(private issueService: IssueService) {
+    this.issues = this.issueService.getAll();
+  }
 }
