@@ -41,4 +41,8 @@ export class IssueService {
   public getAll(): Array<Issue> {
     return this.issues;
   }
+
+  public get(id: number): Issue | undefined {
+    return this.issues.find((i: Issue) => i.id === id);
+  }
 }
