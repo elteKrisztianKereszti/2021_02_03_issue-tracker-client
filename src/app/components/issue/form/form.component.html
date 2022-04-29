@@ -2,17 +2,16 @@
 
 {{ issue | json }}
 
-<form action="" #issueForm="ngForm">
+<form action="" (ngSubmit)="onSubmit($event)" [formGroup]="issueForm">
   <div class="form-group">
     <label for="title">Title</label>
     <input
       type="text"
-      class="form-control is-invalid"
-      id="title"
+      class="form-control"
       placeholder="Title"
-      required
-      name="title"
-      [(ngModel)]="issue.title"
+      formControlName="title"
+      [class.is-invalid]="setIsInvalidClass('title')"
+      [class.is-valid]="issueForm.get('title')?.valid"
     />
     <div class="invalid-feedback">Please provide a title!</div>
   </div>
@@ -20,10 +19,10 @@
     <label for="description">Description</label>
     <textarea
       class="form-control"
-      id="description"
       rows="5"
-      name="description"
-      [(ngModel)]="issue.description"
+      formControlName="description"
+      [class.is-invalid]="setIsInvalidClass('description')"
+      [class.is-valid]="issueForm.get('description')?.valid"
     ></textarea>
     <div class="invalid-feedback">Please provide a description!</div>
   </div>
@@ -32,25 +31,25 @@
     <input
       type="text"
       class="form-control"
-      id="place"
       placeholder="Place"
-      pattern="^PC\d+$"
-      name="place"
-      [(ngModel)]="issue.place"
+      formControlName="place"
+      [class.is-invalid]="setIsInvalidClass('place')"
+      [class.is-valid]="issueForm.get('place')?.valid"
     />
     <div class="invalid-feedback">Please provide a place!</div>
   </div>
   <div class="form-group">
     <label for="status">Status</label>
-    <select class="form-control" id="status" required
-      name="status"
-      [(ngModel)]="issue.status">
+    <select class="form-control"
+    formControlName="status"
+    [class.is-invalid]="setIsInvalidClass('status')"
+    [class.is-valid]="issueForm.get('status')?.valid">
       <option value="NEW">New</option>
       <option value="DOING">Doing</option>
       <option value="DONE">Done</option>
     </select>
     <div class="invalid-feedback">Please provide a status!</div>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!issueForm.valid">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>
