@@ -45,4 +45,13 @@ export class IssueService {
   public get(id: number): Issue | undefined  {
     return this.issues.find((i: Issue) => i.id === id);
   }
+
+  public update(id: number, updatedIssue: Issue): Issue | undefined  {
+    let issue = this.get(id);
+    if (issue) {
+      Object.assign(issue, updatedIssue);
+    }
+
+    return issue;
+  }
 }

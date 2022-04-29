@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Issue } from 'src/app/issue';
 
@@ -9,6 +9,7 @@ import { Issue } from 'src/app/issue';
 })
 export class FormComponent implements OnInit {
   @Input() issue: Issue;
+  @Output() saveIssue: EventEmitter<Issue> = new EventEmitter<Issue>();
 
   public issueForm: FormGroup;
 
@@ -17,6 +18,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.issueForm = this.formBuilder.group({
+      id: [ this.issue.id ],
       title: [ this.issue.title, [ Validators.required ]],
       description: this.issue.description,
       place: [ this.issue.place, [ Validators.required ]],
@@ -27,6 +29,11 @@ export class FormComponent implements OnInit {
   public onSubmit(e: any) {
     e.preventDefault();
     console.log(this.issueForm);
+    console.log(this.issueForm.value);
+    if (this.issueForm.valid) {
+      this.saveIssue.emit(this.issueForm.value as Issue);
+    }
+
   }
 
   public setIsInvalidClass(property: string) {

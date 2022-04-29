@@ -50,6 +50,6 @@
     </select>
     <div class="invalid-feedback">Please provide a status!</div>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled]="issueForm.invalid">Submit</button>
 
 </form>

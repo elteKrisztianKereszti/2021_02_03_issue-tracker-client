@@ -33,4 +33,9 @@ export class ListComponent implements OnInit{
       this.issues.filter((i: Issue) => i.status === this.selectedStatus) :
       this.issues;
   }
+
+  public onSaveIssue(issue: Issue): void {
+    this.issueService.update(issue.id, issue);
+    // save
+  }
 }

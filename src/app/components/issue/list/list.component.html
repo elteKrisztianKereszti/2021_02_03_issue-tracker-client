@@ -32,6 +32,6 @@
   </a>
 </div>
 
-<app-issue-form *ngIf="selectedIssue" [issue]="selectedIssue">
+<app-issue-form *ngIf="selectedIssue" [issue]="selectedIssue" (saveIssue)="onSaveIssue($event)">
 
 </app-issue-form>
