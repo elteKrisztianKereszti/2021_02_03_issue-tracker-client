@@ -2,7 +2,7 @@
 
 {{ issue | json }}
 
-<form action="" novalidate>
+<form action="" #issueForm="ngForm">
   <div class="form-group">
     <label for="title">Title</label>
     <input
@@ -11,6 +11,8 @@
       id="title"
       placeholder="Title"
       required
+      name="title"
+      [(ngModel)]="issue.title"
     />
     <div class="invalid-feedback">Please provide a title!</div>
   </div>
@@ -20,7 +22,8 @@
       class="form-control"
       id="description"
       rows="5"
-      required
+      name="description"
+      [(ngModel)]="issue.description"
     ></textarea>
     <div class="invalid-feedback">Please provide a description!</div>
   </div>
@@ -31,19 +34,23 @@
       class="form-control"
       id="place"
       placeholder="Place"
-      required
+      pattern="PC\-\d+"
+      name="place"
+      [(ngModel)]="issue.place"
     />
     <div class="invalid-feedback">Please provide a place!</div>
   </div>
   <div class="form-group">
     <label for="status">Status</label>
-    <select class="form-control" id="status" required>
+    <select class="form-control" id="status" required
+      name="status"
+      [(ngModel)]="issue.status">
       <option value="NEW">New</option>
       <option value="DOING">Doing</option>
       <option value="DONE">Done</option>
     </select>
     <div class="invalid-feedback">Please provide a status!</div>
   </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!issueForm.valid">Submit</button>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Form } from '@angular/forms';
 import { Issue } from 'src/app/issue';
 
 @Component({
