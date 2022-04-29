@@ -10,6 +10,8 @@ import { DetailComponent } from './components/issue/detail/detail.component';
 import { NewComponent } from './components/issue/new/new.component';
 import { RoutingModule } from './routing/routing.module';
 import { GlinkComponent } from './components/glink/glink.component';
+import { StatusFilterComponent } from './components/status-filter/status-filter.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { GlinkComponent } from './components/glink/glink.component';
     ListComponent,
     DetailComponent,
     NewComponent,
-    GlinkComponent
+    GlinkComponent,
+    StatusFilterComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     NgbModule,
     RoutingModule
   ],
