@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DetailComponent } from '../components/issue/detail/detail.component';
 import { Issue } from '../issue';
 
 @Injectable({
@@ -53,5 +54,12 @@ export class IssueService {
     }
 
     return issue;
+  }
+
+  public add(newIssue: Issue): Issue | undefined  {
+    newIssue.id = new Date().getMilliseconds();
+    this.issues.push(newIssue);
+
+    return newIssue;
   }
 }

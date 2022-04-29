@@ -18,11 +18,11 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.issueForm = this.formBuilder.group({
-      id: [ this.issue.id ],
-      title: [ this.issue.title, [ Validators.required ]],
-      description: this.issue.description,
-      place: [ this.issue.place, [ Validators.required ]],
-      status: [ this.issue.status, [ Validators.required ]],
+      id: [ this.issue?.id ],
+      title: [ this.issue?.title, [ Validators.required ]],
+      description: this.issue?.description,
+      place: [ this.issue?.place, [ Validators.required ]],
+      status: [ this.issue?.status, [ Validators.required ]],
     });
   }
 
