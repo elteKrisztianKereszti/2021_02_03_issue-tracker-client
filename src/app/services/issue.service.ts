@@ -42,7 +42,7 @@ export class IssueService {
     return this.issues;
   }
 
-  public get(id: number): Issue | undefined {
+  public get(id: number): Issue | undefined  {
     return this.issues.find((i: Issue) => i.id === id);
   }
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ListComponent } from '../components/issue/list/list.component';
-import { NewComponent } from '../components/issue/new/new.component';
+import { FormComponent } from '../components/issue/form/form.component';
 import { DetailComponent } from '../components/issue/detail/detail.component';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from '../components/index/index.component';
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: "issues/new",
-    component: NewComponent,
+    component: FormComponent,
   },
   {
     path: "issues/:id",
