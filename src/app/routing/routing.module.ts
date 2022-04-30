@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { ListComponent } from '../components/issue/list/list.component';
-import { DetailComponent } from '../components/issue/detail/detail.component';
+import { IssueListComponent } from '../components/issue/issue-list/issue-list.component';
+import { IssueDetailComponent } from '../components/issue/issue-detail/issue-detail.component';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from '../components/index/index.component';
-import { NewComponent } from '../components/issue/new/new.component';
+import { IssueNewComponent } from '../components/issue/issue-new/issue-new.component';
 
 const routes: Routes = [
   {
@@ -12,15 +12,15 @@ const routes: Routes = [
   },
   {
     path: "issues",
-    component: ListComponent,
+    component: IssueListComponent,
   },
   {
     path: "issues/new",
-    component: NewComponent,
+    component: IssueNewComponent,
   },
   {
     path: "issues/:id",
-    component: DetailComponent,
+    component: IssueDetailComponent,
   },
 ];
 

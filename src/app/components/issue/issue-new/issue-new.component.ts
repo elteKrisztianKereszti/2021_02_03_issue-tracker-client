@@ -5,10 +5,10 @@ import { IssueService } from 'src/app/services/issue.service';
 
 @Component({
   selector: 'app-issue-new',
-  templateUrl: './new.component.html',
-  styleUrls: ['./new.component.css']
+  templateUrl: './issue-new.component.html',
+  styleUrls: ['./issue-new.component.css']
 })
-export class NewComponent implements OnInit {
+export class IssueNewComponent implements OnInit {
 
   constructor(private issueService: IssueService,
     private router: Router) { }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DetailComponent } from '../components/issue/detail/detail.component';
+import { IssueDetailComponent } from '../components/issue/issue-detail/issue-detail.component';
 import { Issue } from '../issue';
 
 @Injectable({
@@ -43,7 +43,7 @@ export class IssueService {
     return this.issues;
   }
 
-  public get(id: number): Issue | undefined  {
+  public get(id: number): Issue  {
     return this.issues.find((i: Issue) => i.id === id);
   }
 

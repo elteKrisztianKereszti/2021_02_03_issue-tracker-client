@@ -4,10 +4,10 @@ import { Issue } from 'src/app/issue';
 
 @Component({
   selector: 'app-issue-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  templateUrl: './issue-form.component.html',
+  styleUrls: ['./issue-form.component.css']
 })
-export class FormComponent implements OnInit {
+export class IssueFormComponent implements OnInit {
   @Input() issue: Issue;
   @Output() saveIssue: EventEmitter<Issue> = new EventEmitter<Issue>();
 

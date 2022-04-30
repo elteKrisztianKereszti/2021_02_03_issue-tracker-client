@@ -4,10 +4,10 @@ import { IssueService } from 'src/app/services/issue.service';
 
 @Component({
   selector: 'app-issue-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  templateUrl: './issue-list.component.html',
+  styleUrls: ['./issue-list.component.css']
 })
-export class ListComponent implements OnInit{
+export class IssueListComponent implements OnInit{
   public issues: Array<Issue> = []
   public selectedStatus: string;
   public selectedIssue: Issue;
