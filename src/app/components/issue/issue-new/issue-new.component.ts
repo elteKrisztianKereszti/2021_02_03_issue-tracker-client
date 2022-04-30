@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Issue } from 'src/app/issue';
 import { IssueService } from 'src/app/services/issue.service';
@@ -6,15 +6,10 @@ import { IssueService } from 'src/app/services/issue.service';
 @Component({
   selector: 'app-issue-new',
   templateUrl: './issue-new.component.html',
-  styleUrls: ['./issue-new.component.css']
+  styleUrls: ['./issue-new.component.css'],
 })
-export class IssueNewComponent implements OnInit {
-
-  constructor(private issueService: IssueService,
-    private router: Router) { }
-
-  ngOnInit(): void {
-  }
+export class IssueNewComponent {
+  constructor(private issueService: IssueService, private router: Router) {}
 
   public onSaveIssue(issue: Issue): void {
     this.issueService.add(issue);

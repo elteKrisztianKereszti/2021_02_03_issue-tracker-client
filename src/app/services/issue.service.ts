@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { IssueDetailComponent } from '../components/issue/issue-detail/issue-detail.component';
 import { Issue } from '../issue';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class IssueService {
   private issues: Array<Issue> = [
@@ -12,42 +11,40 @@ export class IssueService {
       title: 'Bad Machine',
       description: 'Bad Machine in the Farm',
       status: 'NEW',
-      place: 'PC01'
+      place: 'PC01',
     },
     {
       id: 2,
       title: 'Bad Mouse',
       description: 'Mickey Mouse ill',
       status: 'NEW',
-      place: 'PC03'
+      place: 'PC03',
     },
     {
       id: 3,
       title: 'Jim Raynor angry',
       description: 'Cannot run Stracraft on 386 arch computer',
       status: 'DOING',
-      place: 'PC66'
+      place: 'PC66',
     },
     {
       id: 4,
       title: 'No power',
       description: 'NO power in PC42',
       status: 'DONE',
-      place: 'PC42'
+      place: 'PC42',
     },
   ];
-
-  constructor() { }
 
   public getAll(): Array<Issue> {
     return this.issues;
   }
 
-  public get(id: number): Issue  {
+  public get(id: number): Issue {
     return this.issues.find((i: Issue) => i.id === id);
   }
 
-  public update(id: number, updatedIssue: Issue): Issue | undefined  {
+  public update(id: number, updatedIssue: Issue): Issue {
     let issue = this.get(id);
     if (issue) {
       Object.assign(issue, updatedIssue);
@@ -56,7 +53,7 @@ export class IssueService {
     return issue;
   }
 
-  public add(newIssue: Issue): Issue | undefined  {
+  public add(newIssue: Issue): Issue {
     newIssue.id = new Date().getMilliseconds();
     this.issues.push(newIssue);
 

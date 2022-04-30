@@ -7,19 +7,19 @@ import { IssueNewComponent } from '../components/issue/issue-new/issue-new.compo
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: IndexComponent,
   },
   {
-    path: "issues",
+    path: 'issues',
     component: IssueListComponent,
   },
   {
-    path: "issues/new",
+    path: 'issues/new',
     component: IssueNewComponent,
   },
   {
-    path: "issues/:id",
+    path: 'issues/:id',
     component: IssueDetailComponent,
   },
 ];
@@ -29,4 +29,4 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: [],
 })
-export class RoutingModule { }
+export class RoutingModule {}

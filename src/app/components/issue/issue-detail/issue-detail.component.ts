@@ -16,6 +16,6 @@ export class IssueDetailComponent implements OnInit {
 
     public ngOnInit(): void {
       let id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-      this.issue = this.issueService.get(id) as Issue;
+      this.issue = this.issueService.get(id);
     }
 }
