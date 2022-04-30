@@ -1,4 +1,4 @@
-<h2 class="display-2 my-3">New issue</h2>
+<h2 class="display-2 my-3">{{ issue?.id ? 'Edit' : 'New' }} issue</h2>
 
 <form action="" (ngSubmit)="onSubmit()" [formGroup]="issueForm">
   <div class="form-group">

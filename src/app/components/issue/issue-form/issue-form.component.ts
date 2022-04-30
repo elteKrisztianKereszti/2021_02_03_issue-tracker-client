@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Issue } from 'src/app/issue';
+import { IssueService } from 'src/app/services/issue.service';
 
 @Component({
   selector: 'app-issue-form',
@@ -8,28 +10,45 @@ import { Issue } from 'src/app/issue';
   styleUrls: ['./issue-form.component.css'],
 })
 export class IssueFormComponent implements OnInit {
-  @Input() issue: Issue;
-
+  public issue: Issue;
   public issueForm: FormGroup;
 
-  @Output() saveIssue: EventEmitter<Issue> = new EventEmitter<Issue>();
+  constructor(private formBuilder: FormBuilder,
+    private issueService: IssueService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
 
-  constructor(private formBuilder: FormBuilder) {}
-
-  public ngOnInit(): void {
+  ) {
     this.issueForm = this.formBuilder.group({
-      id: [this.issue?.id],
-      title: [this.issue?.title, [Validators.required]],
-      description: this.issue?.description,
-      place: [this.issue?.place, [Validators.required]],
-      status: [this.issue?.status, [Validators.required]],
+      id: [undefined],
+      title: ['', [Validators.required]],
+      description: '',
+      place: ['', [Validators.required]],
+      status: ['', [Validators.required]],
     });
   }
 
-  public onSubmit(): void {
-    if (this.issueForm.valid) {
-      this.saveIssue.emit(this.issueForm.value as Issue);
+  public ngOnInit(): void {
+    let id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    if (id) {
+      this.issue = this.issueService.get(id);
+      this.issueForm.patchValue(this.issue);
     }
+  }
+
+  public onSubmit(): void {
+    if (!this.issueForm.valid) {
+      return;
+    }
+
+    if (this.issue.id) {
+      this.issueService.update(this.issue.id, this.issueForm.value);
+    }
+    else {
+      this.issue = this.issueService.add(this.issueForm.value);
+    }
+
+    this.router.navigate(['issues', this.issue.id]);
   }
 
   public setIsInvalidClass(property: string): boolean {

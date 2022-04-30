@@ -10,7 +10,6 @@ import { IssueFormComponent } from './components/issue/issue-form/issue-form.com
 import { RoutingModule } from './routing/routing.module';
 import { StatusFilterComponent } from './components/status-filter/status-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IssueNewComponent } from './components/issue/issue-new/issue-new.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { IssueNewComponent } from './components/issue/issue-new/issue-new.compon
     IssueListComponent,
     IssueDetailComponent,
     IssueFormComponent,
-    StatusFilterComponent,
-    IssueNewComponent
+    StatusFilterComponent
   ],
   imports: [
     BrowserModule,
