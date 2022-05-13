@@ -63,7 +63,7 @@ export class IssueService {
   public delete(id: number): void {
     let issue: Issue = this.get(id);
     if (issue) {
-      this.issues = this.issues.splice(this.issues.indexOf(issue));
+      this.issues.splice(this.issues.indexOf(issue), 1);
     }
   }
 }

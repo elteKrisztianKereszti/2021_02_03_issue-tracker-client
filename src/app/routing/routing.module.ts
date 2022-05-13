@@ -3,7 +3,8 @@ import { IssueListComponent } from '../components/issue/issue-list/issue-list.co
 import { IssueDetailComponent } from '../components/issue/issue-detail/issue-detail.component';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from '../components/index/index.component';
-import { IssueFormComponent } from '../components/issue/issue-form/issue-form.component';
+import { IssueEditComponent } from '../components/issue/issue-edit/issue-edit.component';
+import { IssueNewComponent } from '../components/issue/issue-new/issue-new.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'issues/new',
-    component: IssueFormComponent,
+    component: IssueNewComponent,
   },
   {
     path: 'issues/:id',
@@ -24,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'issues/:id/edit',
-    component: IssueFormComponent,
+    component: IssueEditComponent,
   },
 ];
 

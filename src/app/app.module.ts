@@ -10,6 +10,8 @@ import { IssueFormComponent } from './components/issue/issue-form/issue-form.com
 import { RoutingModule } from './routing/routing.module';
 import { StatusFilterComponent } from './components/status-filter/status-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IssueNewComponent } from './components/issue/issue-new/issue-new.component';
+import { IssueEditComponent } from './components/issue/issue-edit/issue-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     IssueListComponent,
     IssueDetailComponent,
     IssueFormComponent,
+    IssueNewComponent,
+    IssueEditComponent,
     StatusFilterComponent
   ],
   imports: [
