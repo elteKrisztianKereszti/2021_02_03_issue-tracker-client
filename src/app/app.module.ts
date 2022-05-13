@@ -12,6 +12,7 @@ import { StatusFilterComponent } from './components/status-filter/status-filter.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IssueNewComponent } from './components/issue/issue-new/issue-new.component';
 import { IssueEditComponent } from './components/issue/issue-edit/issue-edit.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { IssueEditComponent } from './components/issue/issue-edit/issue-edit.com
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    RoutingModule
+    RoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

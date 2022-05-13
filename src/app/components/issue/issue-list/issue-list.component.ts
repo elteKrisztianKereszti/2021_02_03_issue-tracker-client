@@ -25,13 +25,15 @@ export class IssueListComponent implements OnInit {
   }
 
   public filter(): void {
-    this.issues = this.issueService.getAll();
+    this.issueService.getAll().subscribe((data) => {
+      this.issues = data;
 
-    if (this.selectedStatus) {
-      this.issues = this.issues.filter(
-        (issue: Issue) => issue.status === this.selectedStatus
-      );
-    }
+      if (this.selectedStatus) {
+        this.issues = this.issues.filter(
+          (issue: Issue) => issue.status === this.selectedStatus
+        );
+      }
+    })
   }
 
   public onSaveIssue(issue: Issue): void {

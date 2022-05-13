@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Issue } from '../issue';
 
 @Injectable({
@@ -36,8 +38,13 @@ export class IssueService {
     },
   ];
 
-  public getAll(): Array<Issue> {
-    return this.issues;
+  constructor(private httpClient: HttpClient) {
+
+  }
+
+  public getAll(): Observable<Array<Issue>> {
+    return this.httpClient.get<Array<Issue>>('http://127.0.0.10/api/issues');
+    //return this.issues;
   }
 
   public get(id: number): Issue {
