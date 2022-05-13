@@ -19,7 +19,6 @@ export class IssueListComponent implements OnInit {
   }
 
   public onFilterChanged(newStatus: string): void {
-    console.log(newStatus);
     this.selectedStatus = newStatus;
     this.filter();
   }
@@ -32,9 +31,5 @@ export class IssueListComponent implements OnInit {
         (issue: Issue) => issue.status === this.selectedStatus
       );
     }
-  }
-
-  public onSaveIssue(issue: Issue): void {
-    this.issueService.update(issue.id, issue);
   }
 }

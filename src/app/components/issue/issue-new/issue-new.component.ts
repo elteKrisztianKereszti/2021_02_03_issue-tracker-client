@@ -13,8 +13,8 @@ export class IssueNewComponent {
   constructor(private issueService: IssueService, private router: Router) { }
 
   public onSave(issue: Issue) {
-    console.log(issue);
-    this.issueService.add(issue);
-    this.router.navigate(['/issues']);
+    this.issueService.add(issue).subscribe((data) => {
+      this.router.navigate(['/issues']);
+    });
   }
 }

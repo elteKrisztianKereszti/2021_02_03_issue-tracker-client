@@ -16,7 +16,6 @@ export class StatusFilterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   public ngOnInit(): void {
-    console.log('init');
     this.radioGroupForm = this.formBuilder.group({
       status: this.status,
     });

@@ -17,11 +17,14 @@ export class IssueDetailComponent implements OnInit {
 
     public ngOnInit(): void {
       let id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-      this.issue = this.issueService.get(id);
+      this.issueService.get(id).subscribe((data: Issue) => {
+        this.issue = data;
+      });
     }
 
     public onDeleteClick(): void {
-      this.issueService.delete(this.issue.id);
-      this.router.navigate(['issues']);
+      this.issueService.delete(this.issue.id).subscribe(() => {
+        this.router.navigate(['issues']);
+      });
     }
 }

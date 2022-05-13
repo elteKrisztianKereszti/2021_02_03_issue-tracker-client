@@ -15,12 +15,14 @@ export class IssueEditComponent {
 
   public ngOnInit(): void {
     let id = Number(this.activatedRoute.snapshot.paramMap.get('id'))
-    this.issue = this.issueService.get(id) as Issue;
+    this.issueService.get(id).subscribe((data: Issue) => {
+      this.issue = data;
+    });
   }
 
   public onSave(issue: Issue) {
-    console.log(issue);
-    this.issueService.update(issue.id, issue);
-    this.router.navigate(['/issues']);
+    this.issueService.update(issue.id, issue).subscribe(() => {
+      this.router.navigate(['/issues']);
+    });
   }
 }

@@ -34,7 +34,6 @@ export class IssueFormComponent implements OnChanges {
     if (!this.issueForm.valid) {
       return;
     }
-    console.log(this.issueForm);
     this.save.emit(this.issueForm.value);
   }
 
