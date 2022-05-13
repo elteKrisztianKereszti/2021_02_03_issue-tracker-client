@@ -24,16 +24,14 @@ export class IssueListComponent implements OnInit {
     this.filter();
   }
 
-  public filter(): void {
-    this.issueService.getAll().subscribe((data) => {
-      this.issues = data;
+  public async filter(): Promise<void> {
+    this.issues = await this.issueService.getAll();
 
-      if (this.selectedStatus) {
-        this.issues = this.issues.filter(
-          (issue: Issue) => issue.status === this.selectedStatus
-        );
-      }
-    })
+    if (this.selectedStatus) {
+      this.issues = this.issues.filter(
+        (issue: Issue) => issue.status === this.selectedStatus
+      );
+    }
   }
 
   public onSaveIssue(issue: Issue): void {

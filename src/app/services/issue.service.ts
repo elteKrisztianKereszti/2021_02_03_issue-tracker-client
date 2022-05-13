@@ -42,9 +42,8 @@ export class IssueService {
 
   }
 
-  public getAll(): Observable<Array<Issue>> {
-    return this.httpClient.get<Array<Issue>>('http://127.0.0.10/api/issues');
-    //return this.issues;
+  public getAll(): Promise<Array<Issue>> {
+    return this.httpClient.get<Array<Issue>>('http://127.0.0.10/api/issues').toPromise();
   }
 
   public get(id: number): Issue {
