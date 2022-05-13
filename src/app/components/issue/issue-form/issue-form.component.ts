@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Issue } from 'src/app/issue';
 
@@ -7,7 +7,7 @@ import { Issue } from 'src/app/issue';
   templateUrl: './issue-form.component.html',
   styleUrls: ['./issue-form.component.css']
 })
-export class IssueFormComponent implements OnInit, OnChanges {
+export class IssueFormComponent implements OnChanges {
   @Input() issue: Issue;
 
   @Output() save: EventEmitter<Issue> = new EventEmitter<Issue>();
@@ -24,11 +24,7 @@ export class IssueFormComponent implements OnInit, OnChanges {
     });
   }
 
-  public ngOnInit(): void {
-    console.log('init');
-  }
-
-  public ngOnChanges(changes: SimpleChanges): void {
+  public ngOnChanges(): void {
     if (this.issue) {
       this.issueForm.patchValue(this.issue);
     }
